@@ -20,7 +20,7 @@
 #pragma mark Initialization
 
 - (id) init {
-    if(self = [super initWithStyle:UITableViewStyleGrouped])
+    if((self = [super initWithStyle:UITableViewStyleGrouped]))
     {
         self.title = @"分类讨论";
         isLoading = NO;

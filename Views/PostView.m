@@ -53,67 +53,67 @@
 #pragma mark -
 #pragma mark UIGestureRecognizer
 
-- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch * touch = [touches anyObject];
-    touchPoint = [touch locationInView:self];
-}
-
-- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch * touch = [touches anyObject];
-    CGPoint touchEndPoint  = [touch locationInView:self];
-    CGPoint touchStartPoint = touchPoint;
-    double y = ABS(touchEndPoint.y - touchStartPoint.y);
-    double x = touchEndPoint.x - touchStartPoint.x;
-    if (y < 50.0) 
-    {
-        double rate = y / x;
-        if (ABS(x) > 30) 
-        {
-            if (rate < 1.0f && rate > 0.0f)
-            {
-                [_delegate onViewPrevious];
-            }
-            else if (rate > -1.0f && rate < 0.0f)
-            {
-                [_delegate onViewNext];
-            }
-        }
-        else if (ABS(x) < 10 && y < 10)
-        {
-            if (touchEndPoint.x > 220)
-            {
-                [_delegate onViewNext];
-            }
-            else if (touchEndPoint.x < 100)
-            {
-                [_delegate onViewPrevious];
-            }
-        }        
-    }
-}
-
-- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
-{
-    UITouch * touch = [touches anyObject];
-    CGPoint touchEndPoint  = [touch locationInView:self];
-    CGPoint touchStartPoint = touchPoint;
-    double y = ABS(touchEndPoint.y - touchStartPoint.y);
-    double x = touchEndPoint.x - touchStartPoint.x;
-    if (y < 50.0) 
-    {
-        double rate = y / x;
-        if (rate < 1.0f && rate > 0.0f)
-        {
-            [_delegate onViewPrevious];
-        }
-        else if (rate > -1.0f && rate < 0.0f)
-        {
-            [_delegate onViewNext];
-        }
-    }
-}
+//- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch * touch = [touches anyObject];
+//    touchPoint = [touch locationInView:self];
+//}
+//
+//- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch * touch = [touches anyObject];
+//    CGPoint touchEndPoint  = [touch locationInView:self];
+//    CGPoint touchStartPoint = touchPoint;
+//    double y = ABS(touchEndPoint.y - touchStartPoint.y);
+//    double x = touchEndPoint.x - touchStartPoint.x;
+//    if (y < 50.0) 
+//    {
+//        double rate = y / x;
+//        if (ABS(x) > 30) 
+//        {
+//            if (rate < 1.0f && rate > 0.0f)
+//            {
+//                [_delegate onViewPrevious];
+//            }
+//            else if (rate > -1.0f && rate < 0.0f)
+//            {
+//                [_delegate onViewNext];
+//            }
+//        }
+//        else if (ABS(x) < 10 && y < 10)
+//        {
+//            if (touchEndPoint.x > 220)
+//            {
+//                [_delegate onViewNext];
+//            }
+//            else if (touchEndPoint.x < 100)
+//            {
+//                [_delegate onViewPrevious];
+//            }
+//        }        
+//    }
+//}
+//
+//- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch * touch = [touches anyObject];
+//    CGPoint touchEndPoint  = [touch locationInView:self];
+//    CGPoint touchStartPoint = touchPoint;
+//    double y = ABS(touchEndPoint.y - touchStartPoint.y);
+//    double x = touchEndPoint.x - touchStartPoint.x;
+//    if (y < 50.0) 
+//    {
+//        double rate = y / x;
+//        if (rate < 1.0f && rate > 0.0f)
+//        {
+//            [_delegate onViewPrevious];
+//        }
+//        else if (rate > -1.0f && rate < 0.0f)
+//        {
+//            [_delegate onViewNext];
+//        }
+//    }
+//}
 
 - (void)dealloc {
     [_delegate release];

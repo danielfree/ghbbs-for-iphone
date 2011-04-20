@@ -15,7 +15,7 @@
 
 - (id) initWithURL:(NSURL *)_url
 {
-    if (self = [super init])
+    if ((self = [super init]))
     {
         url = [_url retain];
         buffer = [[NSMutableString alloc] init];
@@ -65,6 +65,7 @@
         currentPost = [[Post alloc] init];
         id owner = [attributeDict objectForKey:@"owner"];
         id pid = [attributeDict objectForKey:@"fid"];
+        id gid = [attributeDict objectForKey:@"gid"];
         if (owner != nil) 
         {
             currentPost.owner = owner;
@@ -72,6 +73,9 @@
         if (pid != nil) 
         {
             currentPost.pid = pid;
+        }
+        if (gid != nil) {
+            currentPost.gid = gid;
         }
         
         [buffer setString:@""];

@@ -17,7 +17,7 @@
 
 - (id) init
 {
-    if (self = [super init])
+    if ((self = [super init]))
     {
         posts = [[NSMutableArray alloc] init];
         bid = nil;
@@ -58,16 +58,16 @@
     [queue release];
 }
 
-- (void) dismissInstructView
-{
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    [UIView beginAnimations:nil context:context];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDuration:0.5];
-    [UIView setAnimationDelay:0.8];
-    [instrView setAlpha:0.0f];
-    [UIView commitAnimations];
-}
+//- (void) dismissInstructView
+//{
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    [UIView beginAnimations:nil context:context];
+//    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+//    [UIView setAnimationDuration:0.5];
+//    [UIView setAnimationDelay:0.8];
+//    [instrView setAlpha:0.0f];
+//    [UIView commitAnimations];
+//}
 
 #pragma mark -
 #pragma mark View lifecycle
@@ -83,22 +83,30 @@
         self.navigationItem.rightBarButtonItem = button;
         [button release];
     }
-    scrollView = [[UIScrollView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    postView = [[PostView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 480.0f)];
-    postView.delegate = self;
-    instrView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"instruction"]];
+    CGRect scrollViewRect = [self.view bounds];
+    scrollView = [[UIScrollView alloc] initWithFrame:scrollViewRect];
+    CGSize viewSize = self.view.frame.size;
+    scrollView.contentInset=UIEdgeInsetsMake(0.0,0.0,88.0,0.0);
     scrollView.backgroundColor = [UIColor whiteColor];
+    
+    postView = [[PostView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, viewSize.width, viewSize.height)];
+    postView.delegate = self;
+    
     [scrollView addSubview:postView];
-    [scrollView addSubview:instrView];
-    self.view = scrollView;
+    
+   
+    
+    [self.view addSubview:scrollView];
+    
 }
-
+- (void)buttonClick:(id)sender{
+    NSLog(@"button clicked");
+}
 - (void)viewDidLoad 
 {
     [super viewDidLoad];
-    [self dismissInstructView];
     [self fetchFirstPost];
-}
+  }
 
 
 

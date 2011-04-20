@@ -44,7 +44,7 @@
 - (void) beginPost;
 - (void) endPostWithTitle:(NSString *)title Content:(NSString *)content;
 
-- (void) dismissInstructView;
+//- (void) dismissInstructView;
 - (void) fetch;
 - (void) fetchFirstPost;
 - (void) fetchPostWithURL:(NSURL *)url;

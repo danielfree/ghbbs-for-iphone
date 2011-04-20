@@ -45,7 +45,7 @@
 		if ([glyph isKindOfClass:[GHText class]]) 
 		{
 			GHText * ghtext = (GHText *)glyph;
-			NSLog(@"|%@|", ghtext.content);
+//			NSLog(@"|%@|", ghtext.content);
 
 			if ([ghtext.content hasPrefix:@":"]) 
 			{

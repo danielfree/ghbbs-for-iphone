@@ -16,6 +16,7 @@
 @synthesize content = _content;
 @synthesize isStick = _isStick;
 @synthesize pid = _pid;
+@synthesize gid = _gid;
 @synthesize mark = _mark;
 - (id) init
 {

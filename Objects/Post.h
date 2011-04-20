@@ -17,6 +17,7 @@
     NSString * _mark;
     BOOL _isStick;
     NSString * _pid;
+    NSString * _gid;
 }
 @property (nonatomic, copy) NSString * title;
 @property (nonatomic, copy) NSString * owner;
@@ -25,6 +26,7 @@
 @property (nonatomic, copy) NSString * mark;
 @property BOOL isStick;
 @property (nonatomic, copy) NSString * pid;
+@property (nonatomic, copy) NSString * gid;
 - (id) init;
 
 @end

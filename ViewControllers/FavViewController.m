@@ -20,7 +20,7 @@
 #pragma mark Initialization
 - (id) init
 {
-    if (self = [super init])
+    if ((self = [super init]))
     {
         self.title = @"我的收藏";
         favItems = nil;
